@@ -7,5 +7,19 @@
   <title>Document</title>
   <?php wp_head(); ?>
 </head>
-<body>
+
+<?php
+
+  if( is_home() ):
+    $awesome_classes = array('awesome-class');
+  else:
+    $awesome_classes = array('not-awesome-class');
+  endif;
+?>
+
+
+<!-- body_class enables you to add classes to the body of each page - use array 'firstclass', 'secondclass' to specify the classes -->
+<body <?php body_class($awesome_classes); ?>>
+
+  <?php wp_nav_menu(array('theme_location'=>'primary')); ?>
   

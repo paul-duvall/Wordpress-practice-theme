@@ -11,4 +11,15 @@ function awesome_script_enqueue() {
 
 add_action('wp_enqueue_scripts', 'awesome_script_enqueue');
 
+function awesome_theme_setup() {
+  // This adds various functionality to the wordpress theme, such as functions  
+  add_theme_support('menus');
+
+  // Adds the various menu navigations so that can be added to site and be made visible in wp-admin
+  register_nav_menu('primary', 'Primary header navigation');
+  register_nav_menu('secondary', 'Footer navigation');
+}
+
+add_action('init', 'awesome_theme_setup');
+
 ?>
